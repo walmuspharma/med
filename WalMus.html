@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalMus Pharmaceuticals - Innovating for a Healthier Tomorrow</title>
+    <meta name="description" content="WalMus Pharmaceuticals - Leading innovation in pharmaceutical research and development for a healthier world.">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================
+         * ROOT VARIABLES & RESET
+         * =========================== */
+        :root {
+            --primary-blue: #2c5aa0;
+            --secondary-teal: #4a90a4;
+            --accent-green: #6ba644;
+            --deep-navy: #1e3a5f;
+            --success-green: #059669;
+            --background-light: #f7f9fc;
+            --background-white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-gray: #5a6c7d;
+            --text-light: #8fa4b1;
+            --border-gray: #e1e8ed;
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.08);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.12), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.12), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            --gradient-overlay: linear-gradient(135deg, rgba(44, 90, 160, 0.9) 0%, rgba(74, 144, 164, 0.9) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-green) 0%, var(--secondary-teal) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Urbanist', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-white);
+            overflow-x: hidden;
+        }
+
+        /* ===========================
+         * TYPOGRAPHY
+         * =========================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+
+        /* ===========================
+         * UTILITY CLASSES
+         * =========================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2.25rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.025em;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: var(--gradient-accent);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 4rem;
+        }
+
+        /* ===========================
+         * NAVIGATION
+         * =========================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgb(255, 255, 255);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgb(255, 255, 255);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--primary-blue);
+        }
+
+        .logo img {
+            height: 65px;
+            width: 300px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* ===========================
+         * HERO SECTION
+         * =========================== */
+        .hero {
+            height: 100vh;
+            background: var(--gradient-overlay), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23fff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23fff" stop-opacity="0"/></radialGradient></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+            font-size: 4rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+        }
+
+        /* ===========================
+         * ABOUT SECTION
+         * =========================== */
+        .about {
+            background: var(--background-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* ===========================
+         * PRODUCTS SECTION
+         * =========================== */
+        .products {
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .product-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===========================
+         * MISSION SECTION
+         * =========================== */
+        .mission {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .mission .section-header h2,
+        .mission .section-header p {
+            color: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-item h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .value-item p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===========================
+         * CONTACT SECTION
+         * =========================== */
+        .contact {
+            background: var(--background-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-gray);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-gray);
+            border-radius: 0.75rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ===========================
+         * FOOTER
+         * =========================== */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* ===========================
+         * RESPONSIVE DESIGN
+         * =========================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-padding {
+                padding: 3rem 0;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .product-card,
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ===========================
+         * SCROLL ANIMATIONS
+         * =========================== */
+        [data-aos] {
+            pointer-events: none;
+        }
+        
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+
+        /* Custom animation for cards */
+        .card-stagger:nth-child(1) { animation-delay: 0s; }
+        .card-stagger:nth-child(2) { animation-delay: 0.1s; }
+        .card-stagger:nth-child(3) { animation-delay: 0.2s; }
+        .card-stagger:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">
+                    <img src="assets/image/ORIGINAL.png" alt="WalMus Pharmaceuticals Logo">
+                    <!-- <span class="logo-text">WalMus Pharmaceuticals</span> -->
+                </a>
+                <ul class="nav-links">
+
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-aos="fade-up" data-aos-duration="1000">WalMus Pharmaceuticals</h1>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    Years of Healing Trust – Advancing healthcare with reliable medicines and services.
+                </p>
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="#contact" class="btn btn-outline" style="margin-left: 1rem;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="slide-right" data-aos-duration="1000">
+                    <img src="assets/image/original(1).png" alt="WalMus Pharmaceuticals">
+                </div>
+                <div class="about-content" data-aos="slide-left" data-aos-duration="1000">
+                    <h2>About WalMus Pharmaceuticals</h2>
+                    <p>
+                        WalMus is a trusted pharmaceutical company with more than 15 years of experience in the industry. Its mission is to deliver quality medicines and reliable healthcare services to both patients and doctors. Guided by a commitment to improving lives, WalMus continues to build trust through innovation, accessibility, and care.
+                    </p>
+                    <!-- <p>
+                        Our state-of-the-art research facilities and world-class team of scientists work 
+                        tirelessly to discover, develop, and deliver innovative therapeutic solutions for 
+                        the most challenging health conditions.
+                    </p> -->
+                    
+                    <div class="stats">
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years of Excellence</span>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Sales</span>
+                        </div>
+                        <!-- <div class="stat-item" data-aos="zoom-in" data-aos-delay="600">
+                            <span class="stat-number">50M+</span>
+                            <span class="stat-label">Lives Improved</span>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="800">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">Countries Served</span>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products/Research Section -->
+   <section id="products" class="products section-padding">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Our Products Portfolio</h2>
+            <p>
+                Pioneering research across multiple therapeutic areas to address 
+                the world's most pressing health challenges.
+            </p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card card-stagger" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-icon">
+                    <i class="fas fa-venus"></i>
+                </div>
+                <h3>Women's Health</h3>
+                <p>
+                    We are dedicated to advancing women’s health with comprehensive and compassionate care. Our innovative solutions support women through every life stage, from wellness and reproductive care to the management of chronic conditions.
+                </p>
+                </div>
+
+            <div class="product-card card-stagger" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-icon">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h3>Paediatric Health</h3>
+                <p>
+                    Our commitment to the next generation drives our focus on paediatric health. We offer specialized and gentle medical solutions designed to meet the unique needs of children, ensuring a foundation for a healthy and thriving future.
+                </p>
+                </div>
+
+            <div class="product-card card-stagger" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-icon">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+                <h3>Infectious Disease</h3>
+                <p>
+                    As a leader in pharmaceutical innovation, we are at the forefront of the fight against infectious diseases. Our research and development provide powerful treatments to combat evolving bacterial and viral threats.
+                </p>
+                </div>
+
+            <div class="product-card card-stagger" data-aos="fade-up" data-aos-delay="400">
+                <div class="product-icon">
+                    <i class="fas fa-hand-holding-medical"></i>
+                </div>
+                <h3>Chronic Pain Solutions</h3>
+                <p>
+                    We believe that a life free from pain is possible. Our personalized, advanced therapies and holistic management strategies help patients regain comfort, mobility, and a better quality of life.
+                </p>
+                </div>
+
+            <div class="product-card card-stagger" data-aos="fade-up" data-aos-delay="500">
+                <div class="product-icon">
+                    <i class="fas fa-lungs"></i>
+                </div>
+                <h3>Pulmonary Health</h3>
+                <p>
+                    Breathing easier starts with cutting-edge care. We develop a full spectrum of treatments for a wide range of respiratory conditions, from asthma to COPD, empowering patients to live more active and fulfilling lives.
+                </p>
+                </div>
+
+            <div class="product-card card-stagger" data-aos="fade-up" data-aos-delay="600">
+                <div class="product-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Cardio-Metabolic Health</h3>
+                <p>
+                    We are committed to helping you manage chronic conditions with confidence. Our integrated approach provides advanced diagnostics and personalized treatment plans, empowering you to control your health and prevent complications.
+                </p>
+                </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Mission Section -->
+<section id="mission" class="mission section-padding">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Our Mission & Values</h2>
+            <p>
+                At WalMus, our mission is to improve lives by providing trusted medicines 
+                and reliable healthcare services. For more than 15 years, we’ve built 
+                lasting relationships with patients and doctors by combining care, 
+                quality, and accessibility.
+            </p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="value-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Patient Care</h3>
+                <p>
+                    We put patients first, ensuring every medicine and service we deliver 
+                    supports better health and well-being.
+                </p>
+            </div>
+
+            <div class="value-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="value-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Quality</h3>
+                <p>
+                    We uphold the highest standards in our products and services, 
+                    ensuring safety, reliability, and trust.
+                </p>
+            </div>
+
+            <div class="value-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="value-icon">
+                    <i class="fas fa-hand-holding-medical"></i>
+                </div>
+                <h3>Trust & Integrity</h3>
+                <p>
+                    We conduct our work with honesty and transparency, building 
+                    confidence among patients, doctors, and partners.
+                </p>
+            </div>
+
+            <div class="value-item" data-aos="zoom-in" data-aos-delay="400">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Collaboration</h3>
+                <p>
+                    We work hand-in-hand with healthcare providers to deliver solutions 
+                    that truly meet the needs of communities.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Connect With WalMus</h2>
+                <p>
+                    Whether you're a patient, doctor, or partner, we're here to listen and support. 
+                    Reach out to discover how WalMus can bring trusted healthcare solutions to you.
+                </p>
+            </div>
+
+            
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="slide-right">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Street #6, Cavalary Extension<br>Near Cantt, Lahore, Pakistan, 54000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>
+                            <a href="https://wa.me/923025893131" target="_blank">
+                               (+92) 302 5893131
+                            </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info.walmuspharm@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="social-links">
+                        <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="400">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="500">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="600">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="700">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div> -->
+                </div>
+                
+                <div class="contact-form" data-aos="slide-left">
+                    <form>
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="400">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <div data-aos="fade-up" data-aos-delay="500">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 WalMus Pharmaceuticals. All rights reserved. | Innovating for a Healthier Tomorrow</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // ===========================
+        // INITIALIZE AOS ANIMATIONS
+        // ===========================
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                offset: 100
+            });
+        });
+
+        // ===========================
+        // NAVBAR SCROLL EFFECT
+        // ===========================
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===========================
+        // SMOOTH SCROLLING FOR NAVIGATION LINKS
+        // ===========================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===========================
+        // MOBILE MENU TOGGLE
+        // ===========================
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // ===========================
+        // FORM SUBMISSION HANDLER
+        // ===========================
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // ===========================
+        // ANIMATED COUNTER FOR STATS
+        // ===========================
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = counter.textContent.replace(/\d+/, target);
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = counter.textContent.replace(/\d+/, Math.floor(current));
+                    }
+                }, 20);
+            });
+        }
+
+        // ===========================
+        // INTERSECTION OBSERVER FOR STATS ANIMATION
+        // ===========================
+        const statsSection = document.querySelector('.stats');
+        let statsAnimated = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    animateCounters();
+                    statsAnimated = true;
+                }
+            });
+        });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // ===========================
+        // PARALLAX EFFECT FOR HERO SECTION
+        // ===========================
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // ===========================
+        // CARD HOVER EFFECTS
+        // ===========================
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // ===========================
+        // LOADING ANIMATION
+        // ===========================
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // ===========================
+        // ACTIVE NAVIGATION HIGHLIGHTING
+        // ===========================
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ===========================
+        // PERFORMANCE OPTIMIZATION
+        // ===========================
+        // Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debouncing to scroll events
+        const debouncedScrollHandler = debounce(() => {
+            // Scroll-dependent code here
+        }, 16); // ~60fps
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+    </script>
+</body>
+</html>
